@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
 import RecipeCard from "./components/RecipeCard";
+import RecipeDetail from "./components/RecipeDetails";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -34,6 +35,7 @@ const App = () => {
                         {recipes.map((recipe) => (
                           <RecipeCard key={recipe.id} recipe={recipe} />
                         ))}
+                        
                       </>
                     ) : (
                       <p>No recipes found. Try a different search.</p>
@@ -45,6 +47,7 @@ const App = () => {
               </>
             }
           />
+          <Route path="/recipe/:id" element={<RecipeDetail />} />
         </Routes>
       </div>
       <Footer />
