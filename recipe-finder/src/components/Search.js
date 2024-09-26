@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 /**
  * Search component that allows users to input search queries and select cuisines.
@@ -41,12 +41,6 @@ const Search = ({ onSearch }) => {
     "Vietnamese",
   ];
 
-  useEffect(() => {
-    if (cuisine) {
-      onSearch(query, cuisine);
-    }
-  }, [cuisine]);
-
   const handleSearch = () => {
     onSearch(query, cuisine);
   };
@@ -70,6 +64,18 @@ const Search = ({ onSearch }) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+        <select
+          className="form-select mt-3"
+          value={cuisine}
+          onChange={(e) => setCuisine(e.target.value)}
+        >
+          <option value="">All Cuisines</option>
+          {cuisines.map((cuisine) => (
+            <option key={cuisine} value={cuisine}>
+              {cuisine}
+            </option>
+          ))}
+        </select>
         <div className="button-group mt-3 text-center">
           <button
             id="searchButton"
@@ -90,18 +96,6 @@ const Search = ({ onSearch }) => {
             Reset
           </button>
         </div>
-        <select
-          className="form-select mt-3"
-          value={cuisine}
-          onChange={(e) => setCuisine(e.target.value)}
-        >
-          <option value="">All Cuisines</option>
-          {cuisines.map((cuisine) => (
-            <option key={cuisine} value={cuisine}>
-              {cuisine}
-            </option>
-          ))}
-        </select>
       </div>
     </div>
   );
