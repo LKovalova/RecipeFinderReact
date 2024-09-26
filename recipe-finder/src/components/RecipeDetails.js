@@ -45,21 +45,19 @@ const RecipeDetail = () => {
       </div>
       <h1>{recipe.title}</h1>
       <img src={recipe.image} alt={recipe.title} className="img-fluid" />
-      {}
+
       <div id="healthInfo" className="mt-3">
         <p>
           <strong>Health Information:</strong> {healthInfoString}
         </p>
       </div>
 
-      {}
       <div id="servingsInfo">
         <p>
           <strong>Servings:</strong> {recipe.servings}
         </p>
       </div>
 
-      {}
       <div id="readyInInfo">
         <p>
           <strong>Ready in:</strong> {recipe.readyInMinutes} minutes
@@ -67,8 +65,8 @@ const RecipeDetail = () => {
       </div>
       <h3>Ingredients</h3>
       <ul>
-        {recipe.extendedIngredients.map((ingredient) => (
-          <li key={ingredient.id}>
+        {recipe.extendedIngredients.map((ingredient, index) => (
+          <li key={`${ingredient.id}-${index}`}>
             {ingredient.name} - {ingredient.amount} {ingredient.unit}
           </li>
         ))}
