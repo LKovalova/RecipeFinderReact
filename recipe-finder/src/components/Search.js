@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 /**
  * Search component that allows users to input search queries and select cuisines.
@@ -6,6 +6,7 @@ import React, { useState } from "react";
  * @param {function} onSearch - Callback function to execute search with the provided query and cuisine.
  * @returns {JSX.Element} The rendered search input and controls.
  */
+
 const Search = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [cuisine, setCuisine] = useState("");
@@ -39,6 +40,12 @@ const Search = ({ onSearch }) => {
     "Thai",
     "Vietnamese",
   ];
+
+  useEffect(() => {
+    if (cuisine) {
+      onSearch(query, cuisine);
+    }
+  }, [cuisine]);
 
   const handleSearch = () => {
     onSearch(query, cuisine);
