@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
+import RecipeCard from "./components/RecipeCard";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -18,13 +19,33 @@ const App = () => {
 
   return (
     <Router>
-      <Search onSearch={handleSearch} />
-      <div>
-        {searchPerformed ? (
-          recipes.map((recipe) => <div key={recipe.id}>{recipe.title}</div>)
-        ) : (
-          <p>Please perform a search to display results.</p>
-        )}
+      <Header />
+      <div className="container">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Search onSearch={handleSearch} />
+                <div id="results" className="mt-3">
+                  {searchPerformed ? (
+                    recipes.length > 0 ? (
+                      <>
+                        {recipes.map((recipe) => (
+                          <RecipeCard key={recipe.id} recipe={recipe} />
+                        ))}
+                      </>
+                    ) : (
+                      <p>No recipes found. Try a different search.</p>
+                    )
+                  ) : (
+                    <p>Please perform a search to display results.</p>
+                  )}
+                </div>
+              </>
+            }
+          />
+        </Routes>
       </div>
       <Footer />
     </Router>
