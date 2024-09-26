@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Search = () => {
+const Search = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [cuisine, setCuisine] = useState("");
 
@@ -34,6 +34,10 @@ const Search = () => {
     "Vietnamese",
   ];
 
+  const handleSearch = () => {
+    onSearch(query, cuisine);
+  };
+
   return (
     <div>
       <h1>Recipe Finder</h1>
@@ -43,6 +47,16 @@ const Search = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+      <button onClick={handleSearch}>Search</button>
+      <button
+        onClick={() => {
+          setQuery("");
+          setCuisine("");
+          handleSearch();
+        }}
+      >
+        Reset
+      </button>
       <select value={cuisine} onChange={(e) => setCuisine(e.target.value)}>
         <option value="">All Cuisines</option>
         {cuisines.map((cuisine) => (
