@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchRecipeDetails } from "../api";
 
+/**
+ * RecipeDetail component that fetches and displays detailed information about a recipe.
+ *
+ * @returns {JSX.Element} The rendered recipe detail view.
+ */
 const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);

@@ -1,5 +1,13 @@
 import React from "react";
 
+/**
+ * Pagination component that handles page navigation for search results.
+ *
+ * @param {number} currentPage - The current active page number.
+ * @param {number} totalPages - The total number of available pages.
+ * @param {function} onPageChange - Callback function to handle page changes.
+ * @returns {JSX.Element} The rendered pagination controls.
+ */
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const range = 5;
   let startPage = Math.max(1, currentPage - Math.floor(range / 2));

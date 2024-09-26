@@ -1,6 +1,10 @@
 import React from "react";
 import logo from "../assets/logo.png";
 
+/**
+ * Header component that displays the navigation bar with the application logo.
+ * @returns {JSX.Element} The rendered header.
+ */
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

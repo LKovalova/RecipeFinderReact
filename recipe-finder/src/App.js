@@ -10,6 +10,11 @@ import Pagination from "./components/Pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+/**
+ * Main application component that manages state and routes.
+ *
+ * @returns {JSX.Element} The rendered application.
+ */
 const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
@@ -19,6 +24,13 @@ const App = () => {
   const [cuisine, setCuisine] = useState("");
   const recipesPerPage = 5;
 
+  /**
+   * Handles the search for recipes based on the input query and selected cuisine.
+   *
+   * @param {string} query - The search query entered by the user.
+   * @param {string} cuisine - The selected cuisine to filter recipes.
+   * @param {number} page - The page number for pagination (default is 1).
+   */
   const handleSearch = async (query, cuisine, page = 1) => {
     setQuery(query);
     setCuisine(cuisine);
@@ -58,7 +70,9 @@ const App = () => {
                       <p>No recipes found. Try a different search.</p>
                     )
                   ) : (
-                    <p>Please perform a search to display results.</p>
+                    <p className="text-center">
+                      Please perform a search to display results.
+                    </p>
                   )}
                 </div>
               </>
