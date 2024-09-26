@@ -1,4 +1,4 @@
-const apiKey = "cd740a7d200d48499c5bdb0a5e94b196";
+const apiKey = "a5e21e64c2ae41bbb56740609a2a2e85";
 
 export const fetchRecipes = async (query, cuisine, page, number) => {
   const offset = (page - 1) * number;
