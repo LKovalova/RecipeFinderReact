@@ -1,0 +1,31 @@
+html, body {
+    height: 100%; 
+    margin: 0; 
+}
+  
+body {
+    font-family: 'Amaranth', sans-serif;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh;
+    color: #594a47;
+    background-color: #EAE1D6;
+  }
+  
+.amaranth-regular {
+    font-family: "Amaranth", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar-brand {
+    display: flex; 
+    justify-content: center; 
+}
+
+.navbar-brand img {
+    filter: drop-shadow(0 0 5px rgba(89, 74, 71, 0.5)); 
+}
+  
+
+

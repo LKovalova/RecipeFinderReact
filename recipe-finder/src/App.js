@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { fetchRecipes } from "./api";
-import "./App.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
 import RecipeCard from "./components/RecipeCard";
 import RecipeDetail from "./components/RecipeDetails";
 import Pagination from "./components/Pagination";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);

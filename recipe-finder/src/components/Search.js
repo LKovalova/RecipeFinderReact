@@ -39,32 +39,53 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="mt-4 text-center">
       <h1>Recipe Finder</h1>
-      <input
-        type="text"
-        placeholder="Search for recipes..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-      <button
-        onClick={() => {
-          setQuery("");
-          setCuisine("");
-          handleSearch();
-        }}
-      >
-        Reset
-      </button>
-      <select value={cuisine} onChange={(e) => setCuisine(e.target.value)}>
-        <option value="">All Cuisines</option>
-        {cuisines.map((cuisine) => (
-          <option key={cuisine} value={cuisine}>
-            {cuisine}
-          </option>
-        ))}
-      </select>
+      <p className="mt-2 text-center">
+        <i>
+          Search for recipes by name or ingredient, and select a cuisine to
+          filter your results.
+        </i>
+      </p>
+
+      <div className="form-group">
+        <input
+          type="text"
+          id="searchInput"
+          className="form-control"
+          placeholder="Search for recipes..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <div className="button-group mt-3 text-center">
+          <button
+            id="searchButton"
+            className="btnSearch"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
+          <button
+            id="resetButton"
+            className="btnReset"
+            onClick={() => {
+              setQuery("");
+              setCuisine("");
+              handleSearch();
+            }}
+          >
+            Reset
+          </button>
+        </div>
+        <select className="form-select mt-3" value={cuisine} onChange={(e) => setCuisine(e.target.value)}>
+          <option value="">All Cuisines</option>
+          {cuisines.map((cuisine) => (
+            <option key={cuisine} value={cuisine}>
+              {cuisine}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };
