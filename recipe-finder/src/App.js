@@ -4,6 +4,7 @@ import { fetchRecipes } from "./api";
 import "./App.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -25,6 +26,7 @@ const App = () => {
           <p>Please perform a search to display results.</p>
         )}
       </div>
+      <Footer />
     </Router>
   );
 };
